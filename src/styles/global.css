@@ -184,9 +184,9 @@ main {
 
 .article-card {
   align-items: start;
-  column-gap: 28px;
+  column-gap: 24px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 160px;
+  grid-template-columns: minmax(0, 1fr) 148px;
   padding-top: 0;
 }
 
@@ -195,8 +195,9 @@ main {
 }
 
 .article-date {
+  align-self: start;
   justify-self: end;
-  padding-top: 2px;
+  padding-top: 0.12rem;
   text-align: right;
 }
 
@@ -209,15 +210,15 @@ main {
 }
 
 .article-card h2 {
-  font-size: 1.55rem;
-  line-height: 1.22;
+  font-size: 1.32rem;
+  line-height: 1.24;
   margin: 0;
 }
 
 .article-card .meta {
   color: rgb(61 84 70 / 60%);
-  font-size: 1rem;
-  line-height: 1.3;
+  font-size: 0.96rem;
+  line-height: 1.2;
 }
 
 .article {
@@ -355,7 +356,7 @@ main {
 
   .archive-tab-count,
   .article-card .meta {
-    font-size: 0.98rem;
+    font-size: 0.92rem;
   }
 
   .article-card h2 {
