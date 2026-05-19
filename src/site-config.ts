@@ -4,7 +4,7 @@ export const siteConfig = {
   siteUrl: "",
   owner: "维小灿烂",
   xiaohongshuLabel: "小红书：维小灿！",
-  xiaohongshuUrl: "https://www.xiaohongshu.com/",
+  xiaohongshuUrl: "https://xhslink.com/m/48FhNSh5Iu4",
   wechatLabel: "微信公众号：AI智友记",
   wechatUrl: "",
 };
