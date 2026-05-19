@@ -1,10 +1,10 @@
 export const siteConfig = {
   title: "AI Radar",
-  description: "个人学习沉淀、自动聚合公开信息源。",
+  description: "Agent 自动产出的 AI 信息聚合作品集。",
   siteUrl: "",
-  owner: "AI智友记",
-  xiaohongshuLabel: "小红书：AI智友记",
+  owner: "维小灿烂",
+  xiaohongshuLabel: "小红书：维小灿！",
   xiaohongshuUrl: "https://www.xiaohongshu.com/",
-  wechatLabel: "公众号：待补充",
+  wechatLabel: "微信公众号：AI智友记",
   wechatUrl: "",
 };
