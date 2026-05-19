@@ -6,28 +6,32 @@ const daily = await getCollection("daily");
 const weekly = await getCollection("weekly");
 const dailyArticles = daily
   .filter((entry) => entry.data.published)
-  .sort((left, right) => right.data.date.localeCompare(left.data.date));
+  .sort((left, right) => right.data.publishedDate.localeCompare(left.data.publishedDate));
 const weeklyArticles = weekly
   .filter((entry) => entry.data.published)
-  .sort((left, right) => right.data.date.localeCompare(left.data.date));
+  .sort((left, right) => right.data.publishedDate.localeCompare(left.data.publishedDate));
 ---
 
 <BaseLayout title="AI Radar">
   <div class="eyebrow">Daily intelligence archive</div>
   <h1 class="page-title">AI Radar</h1>
-  <p class="page-intro">
-    每天自动聚合公开 AI 信息源，沉淀成日报与周报。
-  </p>
-  <div class="rule"></div>
+  <p class="page-intro">每天自动聚合公开 AI 信息源，沉淀成日报与周报。</p>
 
-  <section class="archive-group">
-    <h2 class="archive-heading">日报</h2>
+  <div class="archive-tabs" role="tablist" aria-label="Archive sections">
+    <button class="archive-tab is-active" type="button" role="tab" aria-selected="true" data-tab-target="daily-panel">
+      日报 ({dailyArticles.length})
+    </button>
+    <button class="archive-tab" type="button" role="tab" aria-selected="false" data-tab-target="weekly-panel">
+      周报 ({weeklyArticles.length})
+    </button>
+  </div>
+
+  <section id="daily-panel" class="archive-panel">
     <div class="article-list">
       {dailyArticles.map((article) => (
         <article class="article-card">
           <div class="article-topline">
-            <div class="eyebrow">日报</div>
-            <div class="meta">{article.data.date}</div>
+            <div class="meta">{article.data.publishedDate}</div>
           </div>
           <h2>
             <a href={`/daily/${article.data.routeSlug}/`}>{article.data.title}</a>
@@ -37,14 +41,12 @@ const weeklyArticles = weekly
     </div>
   </section>
 
-  <section class="archive-group">
-    <h2 class="archive-heading">周报</h2>
+  <section id="weekly-panel" class="archive-panel" hidden>
     <div class="article-list">
       {weeklyArticles.map((article) => (
         <article class="article-card">
           <div class="article-topline">
-            <div class="eyebrow">周报</div>
-            <div class="meta">{article.data.date}</div>
+            <div class="meta">{article.data.publishedDate}</div>
           </div>
           <h2>
             <a href={`/weekly/${article.data.routeSlug}/`}>{article.data.title}</a>
@@ -53,4 +55,22 @@ const weeklyArticles = weekly
       ))}
     </div>
   </section>
+
+  <script is:inline>
+    const tabs = Array.from(document.querySelectorAll(".archive-tab"));
+    const panels = Array.from(document.querySelectorAll(".archive-panel"));
+    for (const tab of tabs) {
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-tab-target");
+        for (const currentTab of tabs) {
+          const active = currentTab === tab;
+          currentTab.classList.toggle("is-active", active);
+          currentTab.setAttribute("aria-selected", active ? "true" : "false");
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.id !== target;
+        }
+      });
+    }
+  </script>
 </BaseLayout>

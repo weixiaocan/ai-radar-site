@@ -25,6 +25,10 @@ a {
   text-underline-offset: 0.18em;
 }
 
+a:visited {
+  color: var(--fg);
+}
+
 a:hover,
 a:focus-visible {
   color: var(--accent);
@@ -50,7 +54,7 @@ main {
 }
 
 .site-brand {
-  color: var(--fg);
+  color: var(--accent);
   font-family: "Noto Serif SC", serif;
   font-size: 1.1rem;
   font-weight: 600;
@@ -63,7 +67,7 @@ main {
 }
 
 .site-nav a {
-  color: var(--fg);
+  color: var(--accent);
   font-size: 0.92rem;
   text-decoration: none;
 }
@@ -93,42 +97,51 @@ main {
 
 .page-intro,
 .meta,
-footer {
+.site-footer {
   color: var(--fg);
 }
 
-.rule {
-  border-top: 1px solid var(--rule);
-  margin: 32px 0;
+.archive-tabs {
+  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  margin: 30px 0 34px;
 }
 
-.archive-group + .archive-group {
-  margin-top: 56px;
+.archive-tab {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: rgb(15 15 14 / 60%);
+  cursor: pointer;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: 0 0 10px;
 }
 
-.archive-heading {
-  border-top: 1px solid var(--rule);
-  font-family: "Noto Serif SC", serif;
-  font-size: 1.7rem;
-  font-weight: 600;
-  margin: 0 0 20px;
-  padding-top: 18px;
+.archive-tab.is-active {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.archive-panel[hidden] {
+  display: none;
 }
 
 .article-list {
   display: grid;
-  gap: 22px;
+  gap: 30px;
 }
 
 .article-topline {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
 }
 
 .article-card {
-  border-top: 1px solid var(--rule);
-  padding-top: 18px;
+  padding-top: 0;
 }
 
 .article-card h2,
@@ -142,7 +155,7 @@ footer {
 .article-card h2 {
   font-size: 1.55rem;
   line-height: 1.25;
-  margin: 8px 0 6px;
+  margin: 6px 0 0;
 }
 
 .article {
@@ -218,6 +231,10 @@ footer {
   text-decoration-color: var(--accent);
 }
 
+.digest-title a:visited {
+  color: var(--fg);
+}
+
 .digest-summary {
   color: var(--fg);
   font-size: 1rem;
@@ -235,11 +252,17 @@ footer {
   font-weight: 500;
 }
 
-footer {
-  border-top: 1px solid var(--rule);
+.site-footer {
+  background: var(--soft);
+  border-top: 0;
   margin-top: 64px;
-  padding-top: 18px;
+  padding: 26px 24px;
   font-size: 0.92rem;
+}
+
+.site-footer a,
+.site-footer a:visited {
+  color: var(--accent);
 }
 
 @media (max-width: 720px) {
@@ -247,9 +270,13 @@ footer {
     padding: 28px 18px 72px;
   }
 
-  .site-header,
-  .article-topline {
+  .site-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .archive-tabs {
+    gap: 18px;
+    margin-bottom: 28px;
   }
 }

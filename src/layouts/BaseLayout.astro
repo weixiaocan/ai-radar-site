@@ -5,9 +5,10 @@ import { siteConfig } from "../site-config";
 interface Props {
   title: string;
   description?: string;
+  hideFooter?: boolean;
 }
 
-const { title, description = siteConfig.description } = Astro.props;
+const { title, description = siteConfig.description, hideFooter = false } = Astro.props;
 const canonicalUrl =
   siteConfig.siteUrl && Astro.url.pathname
     ? new URL(Astro.url.pathname, siteConfig.siteUrl).toString()
@@ -40,19 +41,21 @@ const canonicalUrl =
           </nav>
         </header>
         <slot />
-        <footer>
-          <div>{siteConfig.description}</div>
-          <div>
-            <a href={siteConfig.xiaohongshuUrl} target="_blank" rel="noreferrer">{siteConfig.xiaohongshuLabel}</a>
-          </div>
-          <div>
-            {siteConfig.wechatUrl ? (
-              <a href={siteConfig.wechatUrl} target="_blank" rel="noreferrer">{siteConfig.wechatLabel}</a>
-            ) : (
-              <span>{siteConfig.wechatLabel}</span>
-            )}
-          </div>
-        </footer>
+        {!hideFooter && (
+          <footer class="site-footer">
+            <div>{siteConfig.description}</div>
+            <div>
+              <a href={siteConfig.xiaohongshuUrl} target="_blank" rel="noreferrer">{siteConfig.xiaohongshuLabel}</a>
+            </div>
+            <div>
+              {siteConfig.wechatUrl ? (
+                <a href={siteConfig.wechatUrl} target="_blank" rel="noreferrer">{siteConfig.wechatLabel}</a>
+              ) : (
+                <span>{siteConfig.wechatLabel}</span>
+              )}
+            </div>
+          </footer>
+        )}
       </div>
     </main>
   </body>

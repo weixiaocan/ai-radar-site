@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 const articleSchema = z.object({
   title: z.string(),
   date: z.string(),
+  publishedDate: z.string(),
   type: z.enum(["daily", "weekly"]),
   routeSlug: z.string(),
   sourcePath: z.string(),
