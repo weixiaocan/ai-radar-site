@@ -35,12 +35,14 @@ const weeklyArticles = weekly
     <div class="article-list">
       {dailyArticles.map((article) => (
         <article class="article-card">
-          <div class="article-topline">
+          <div class="article-main">
+            <h2>
+              <a href={`/daily/${article.data.routeSlug}/`}>{article.data.title}</a>
+            </h2>
+          </div>
+          <div class="article-date">
             <div class="meta">{article.data.publishedDate}</div>
           </div>
-          <h2>
-            <a href={`/daily/${article.data.routeSlug}/`}>{article.data.title}</a>
-          </h2>
         </article>
       ))}
     </div>
@@ -50,12 +52,14 @@ const weeklyArticles = weekly
     <div class="article-list">
       {weeklyArticles.map((article) => (
         <article class="article-card">
-          <div class="article-topline">
+          <div class="article-main">
+            <h2>
+              <a href={`/weekly/${article.data.routeSlug}/`}>{article.data.title}</a>
+            </h2>
+          </div>
+          <div class="article-date">
             <div class="meta">{article.data.publishedDate}</div>
           </div>
-          <h2>
-            <a href={`/weekly/${article.data.routeSlug}/`}>{article.data.title}</a>
-          </h2>
         </article>
       ))}
     </div>

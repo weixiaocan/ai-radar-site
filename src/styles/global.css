@@ -179,14 +179,22 @@ main {
   gap: 30px;
 }
 
-.article-topline {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
+.article-card {
+  align-items: start;
+  column-gap: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-top: 0;
 }
 
-.article-card {
-  padding-top: 0;
+.article-main {
+  min-width: 0;
+}
+
+.article-date {
+  justify-self: end;
+  padding-top: 2px;
+  text-align: right;
 }
 
 .article-card h2,
@@ -200,7 +208,7 @@ main {
 .article-card h2 {
   font-size: 1.55rem;
   line-height: 1.25;
-  margin: 6px 0 0;
+  margin: 0;
 }
 
 .article {
@@ -315,5 +323,16 @@ main {
 
   .hero-banner {
     padding: 44px 24px 40px;
+  }
+
+  .article-card {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
+
+  .article-date {
+    justify-self: start;
+    padding-top: 0;
+    text-align: left;
   }
 }
