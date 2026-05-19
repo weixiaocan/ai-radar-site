@@ -251,6 +251,19 @@ main {
   margin-top: 28px;
 }
 
+.article-weekly h2:first-of-type {
+  background: var(--accent);
+  color: var(--bg);
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 8px 16px 10px;
+}
+
+.article-weekly h3 {
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+}
+
 .article blockquote {
   border-left: 1px solid var(--accent);
   background: var(--soft);
@@ -310,6 +323,29 @@ main {
 }
 
 .digest-entry-compact .digest-title {
+  margin-bottom: 0;
+}
+
+.weekly-reference-list {
+  list-style: disc;
+  margin: 20px 0 32px 1.7rem;
+  padding-left: 1.2rem;
+}
+
+.weekly-reference-item {
+  margin: 0 0 22px;
+  padding-left: 0.3rem;
+}
+
+.weekly-reference-item::marker {
+  color: var(--accent);
+}
+
+.weekly-reference-item .digest-source {
+  margin-bottom: 4px;
+}
+
+.weekly-reference-item .digest-title {
   margin-bottom: 0;
 }
 
