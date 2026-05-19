@@ -13,16 +13,21 @@ const weeklyArticles = weekly
 ---
 
 <BaseLayout title="AI Radar">
-  <div class="eyebrow">Daily intelligence archive</div>
-  <h1 class="page-title">AI Radar</h1>
-  <p class="page-intro">每天自动聚合公开 AI 信息源，沉淀成日报与周报。</p>
+  <section class="hero-banner">
+    <div class="eyebrow">Daily intelligence archive</div>
+    <h1 class="page-title">AI Radar</h1>
+    <p class="hero-lead">每日 AI 精选 · 由 Agent 自动产出</p>
+    <p class="hero-note">按项目相关性、反共识观点、嘉宾稀缺度、传播度四个维度进行筛选与评分。</p>
+  </section>
 
   <div class="archive-tabs" role="tablist" aria-label="Archive sections">
     <button class="archive-tab is-active" type="button" role="tab" aria-selected="true" data-tab-target="daily-panel">
-      日报 ({dailyArticles.length})
+      <span class="archive-tab-label">日报</span>
+      <span class="archive-tab-count">({dailyArticles.length})</span>
     </button>
     <button class="archive-tab" type="button" role="tab" aria-selected="false" data-tab-target="weekly-panel">
-      周报 ({weeklyArticles.length})
+      <span class="archive-tab-label">周报</span>
+      <span class="archive-tab-count">({weeklyArticles.length})</span>
     </button>
   </div>
 
