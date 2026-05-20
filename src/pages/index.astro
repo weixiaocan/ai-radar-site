@@ -10,10 +10,6 @@ const dailyArticles = daily
 const weeklyArticles = weekly
   .filter((entry) => entry.data.published)
   .sort((left, right) => right.data.publishedDate.localeCompare(left.data.publishedDate));
-
-function getArchiveTimestamp(article: (typeof dailyArticles)[number] | (typeof weeklyArticles)[number]) {
-  return article.data.updatedAt ?? article.data.publishedDate;
-}
 ---
 
 <BaseLayout title="AI Radar">
@@ -44,7 +40,7 @@ function getArchiveTimestamp(article: (typeof dailyArticles)[number] | (typeof w
             </h2>
           </div>
           <div class="article-date">
-            <div class="meta">{getArchiveTimestamp(article)}</div>
+            <div class="meta">{article.data.publishedDate}</div>
           </div>
         </article>
       ))}
@@ -61,7 +57,7 @@ function getArchiveTimestamp(article: (typeof dailyArticles)[number] | (typeof w
             </h2>
           </div>
           <div class="article-date">
-            <div class="meta">{getArchiveTimestamp(article)}</div>
+            <div class="meta">{article.data.publishedDate}</div>
           </div>
         </article>
       ))}
