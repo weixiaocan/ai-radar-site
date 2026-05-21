@@ -15,7 +15,7 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout title={`${entry.data.title} | AI Radar`} description={entry.data.title}>
-  <article class="article">
+  <article class="article article-daily">
     <a class="article-back" href="/">返回首页</a>
     {entry.data.updatedAt && <p class="article-update-meta">更新时间：{entry.data.updatedAt}</p>}
     <Content />
